@@ -1,0 +1,33 @@
+{{#if products}}
+
+<table class="table">
+    <thead class="thead-primary">
+        <tr class="text-center">
+            <th>Наименование</th>
+            <th>Цена</th>
+            <th>Количество</th>
+            <th>Всего</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each products}}
+            <tr class="text-center">
+            <td class="product-name">
+                <h3>{{title}}</h3>
+            </td>
+	        <td class="price">{{itemPrice}}</td>
+		        <td class="quantity">
+                    {{this.qty}}
+		        </td>
+	        <td class="total">{{price}}</td>
+            </tr><!-- END TR-->
+        {{/each}}
+    </tbody>
+</table>
+
+<h3>Общая сумма</h3>
+    <p class="d-flex total-price">
+        <span>{{totalPrice}}</span>
+    </p>
+
+{{/if}}

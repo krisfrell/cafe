@@ -1,0 +1,116 @@
+<section class="home-slider owl-carousel">
+
+      <div class="slider-item" style="background-image: url(../images/background.png);" data-stellar-background-ratio="0.5">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center">
+
+            <div class="col-md-7 col-sm-12 text-center ftco-animate">
+            	<h1 class="mb-3 mt-5 bread">Контакты</h1>
+	            <p class="breadcrumbs"><span class="mr-2"><a href="/">На главную</a></span></p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-section contact-section">
+      <div class="container mt-5">
+        <div class="row block-9">
+					<div class="col-md-4 contact-info ftco-animate">
+						<div class="row">
+							<div class="col-md-12 mb-4">
+	              <h2 class="h4">Контактная информация</h2>
+	            </div>
+	            <div class="col-md-12 mb-3">
+	              <p><span>Адрес:</span>г. Москва, ул. Энергетическая, д. 14, к. 1</p>
+	            </div>
+	            <div class="col-md-12 mb-3">
+	              <p><span>Телефон:</span> <a href="tel://1234567920">+7 (925) 545-10-63</a></p>
+	            </div>
+	            <div class="col-md-12 mb-3">
+	              <p><span>Email:</span> <a href="mailto:info@yoursite.com">town.moskva@gmail.com</a></p>
+	            </div>
+						</div>
+					</div>
+					<div class="col-md-1"></div>
+          <div class="col-md-6 ftco-animate">
+            <form action="#" class="contact-form">
+            	<div class="row">
+            		<div class="col-md-6">
+	                <div class="form-group">
+	                  <input type="text" id="name" class="form-control" placeholder="Имя">
+	                </div>
+                </div>
+                <div class="col-md-6">
+	                <div class="form-group">
+	                  <input type="email" id="email" class="form-control" placeholder="Email" required>
+	                </div>
+	                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" id="subject" class="form-control" placeholder="Тема письма" required>
+              </div>
+              <div class="form-group">
+                <textarea name="" id="text" cols="30" rows="7" class="form-control" placeholder="Сообщение" required></textarea>
+              </div>
+              <div class="form-group">
+                <input type="submit" id="send" value="Отправить сообщение" class="btn btn-primary py-3 px-5">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A693d80c60af5d748874f3572305ba298d7854ce29f7bfd0dd4552f90c2e6abb4&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true"></script>
+
+    <!-- loader -->
+      <div id='ftco-loader' class='show fullscreen'><svg class='circular' width='48px' height='48px'><circle class='path-bg' cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke='#eeeeee'/><circle class='path' cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke-miterlimit='10' stroke='#F96D00'/></svg></div>
+
+
+      <script src='/javascripts/jquery.min.js'></script>
+      <script src='/javascripts/jquery-migrate-3.0.1.min.js'></script>
+      <script src='/javascripts/popper.min.js'></script>
+      <script src='/javascripts/bootstrap.min.js'></script>
+      <script src='/javascripts/jquery.easing.1.3.js'></script>
+      <script src='/javascripts/jquery.waypoints.min.js'></script>
+      <script src='/javascripts/jquery.stellar.min.js'></script>
+      <script src='/javascripts/owl.carousel.min.js'></script>
+      <script src='/javascripts/jquery.magnific-popup.min.js'></script>
+      <script src='/javascripts/aos.js'></script>
+      <script src='/javascripts/jquery.animateNumber.min.js'></script>
+      <script src='/javascripts/bootstrap-datepicker.js'></script>
+      <script src='/javascripts/jquery.timepicker.min.js'></script>
+      <script src='/javascripts/scrollax.min.js'></script>
+      <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false'></script>
+      <script src='/javascripts/google-map.js'></script>
+      <script src='/javascripts/main.js'></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+      <script>
+        $('form').on('submit', (e) => {
+            e.preventDefault();
+
+            var name = $('#name').val().trim();
+            var email = $('#email').val().trim();
+            var subject = $('#subject').val().trim();
+            var text = $('#text').val().trim();
+
+            var data = {
+                name,
+                email,
+                subject,
+                text
+            };
+
+            $.post('/email', data, function() {
+                console.log('Отправлено');
+            });
+
+            if(!alert('Сообщение отправлено')) {
+                window.location.reload();
+            }
+        });
+      </script>

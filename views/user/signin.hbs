@@ -1,32 +1,53 @@
-<div id="showcase">
-    <div class="row sign-in">
-        <div class="col-md-4 col-md-offset-4 card">
-            <div class="text-center">
-                <h1>Sign In</h1>
-            </div>
+<section class="ftco-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4 ftco-animate ">
             {{#if hasErrors}}
-            <div class="alert alert-danger">
-                {{# each messages }}
-                <p>{{this}}</p>
-                {{/each}}
-            </div>
+                <div class="alert alert-danger">
+                    {{#each messages}}
+                        <p>{{this}}</p>
+                    {{/each}}
+                </div>
             {{/if}}
-            <form action="/user/signin" method="post">
-                <div class="form-group">
-                    <label for="email">E-Mail</label>
-                    <input type="text" id="email" name="email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-control">
-                </div>
-                <input type="hidden" name="_csrf" value="{{ csrfToken }}">
-                <button type="submit" class="btn btn-primary">Sign In</button>
-            </form>
-            <h4>Don't have an account?
-                <a href="/user/signup">Sign up instead!</a>
-            </h4>
+            <form action="/user/signin" method="post" class="billing-form ftco-bg-dark p-3 p-md-5">
+	          	<div class="row">
+	                <div class="form-group">
+	                	<label for="email">E-Mail</label>
+	                    <input type="text" id="email" name="email" class="form-control" placeholder="">
+	                </div>
+	                <div class="form-group">
+	                	<label for="password">Пароль</label>
+	                    <input type="password" id="password" name="password" class="form-control" placeholder="">
+	                </div>
+	                <input type="hidden" name="_csrf" value="{{  csrfToken }}">
+	                <!--<p><a href="#"class="btn btn-primary py-3 px-4">Зарегистрироваться</a></p>-->
+	                <button type="submit" class="btn btn-primary py-3 px-4">Войти</button>
+	                <p>Нет аккаунта? <a href="/user/signup/">Зарегистрироваться</a></p>
+	            </div>
+	        </form>
+          </div>
         </div>
-    </div>
-</div>
-<script type="text/javascript" src="/javascripts/canvas.js"></script>
+      </div>
+</section>
+
+<!-- loader -->
+  <div id='ftco-loader' class='show fullscreen'><svg class='circular' width='48px' height='48px'><circle class='path-bg' cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke='#eeeeee'/><circle class='path' cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke-miterlimit='10' stroke='#F96D00'/></svg></div>
+
+
+  <script src='/javascripts/jquery.min.js'></script>
+  <script src='/javascripts/jquery-migrate-3.0.1.min.js'></script>
+  <script src='/javascripts/popper.min.js'></script>
+  <script src='/javascripts/bootstrap.min.js'></script>
+  <script src='/javascripts/jquery.easing.1.3.js'></script>
+  <script src='/javascripts/jquery.waypoints.min.js'></script>
+  <script src='/javascripts/jquery.stellar.min.js'></script>
+  <script src='/javascripts/owl.carousel.min.js'></script>
+  <script src='/javascripts/jquery.magnific-popup.min.js'></script>
+  <script src='/javascripts/aos.js'></script>
+  <script src='/javascripts/jquery.animateNumber.min.js'></script>
+  <script src='/javascripts/bootstrap-datepicker.js'></script>
+  <script src='/javascripts/jquery.timepicker.min.js'></script>
+  <script src='/javascripts/scrollax.min.js'></script>
+  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false'></script>
+  <script src='/javascripts/google-map.js'></script>
+  <script src='/javascripts/main.js'></script>

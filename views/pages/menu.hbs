@@ -1,0 +1,869 @@
+<section class="ftco-menu mb-5 pb-5">
+    <div class="container">
+        <div class="row justify-content-center mb-5">
+            <div class="col-md-7 heading-section text-center ftco-animate">
+                <span class="subheading">Изучите</span>
+                <h2 class="mb-4">наше меню</h2>
+            </div>
+        </div>
+        <div class="row d-md-flex">
+            <div class="col-lg-12 ftco-animate p-md-5">
+                <div class="row">
+                    <div class="col-md-12 nav-link-wrap mb-5">
+                        <div class="nav ftco-animate nav-pills justify-content-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">Роллы</a>
+                            <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">Горячие роллы</a>
+                            <a class="nav-link" id="v-pills-3-tab" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">Запеченные роллы</a>
+                            <a class="nav-link" id="v-pills-4-tab" data-toggle="pill" href="#v-pills-4" role="tab" aria-controls="v-pills-4" aria-selected="false">Спайси суши</a>
+                            <a class="nav-link" id="v-pills-15-tab" data-toggle="pill" href="#v-pills-15" role="tab" aria-controls="v-pills-15" aria-selected="false">Суши</a>
+                            <a class="nav-link" id="v-pills-5-tab" data-toggle="pill" href="#v-pills-5" role="tab" aria-controls="v-pills-5" aria-selected="false">Салаты</a>
+                            <a class="nav-link" id="v-pills-6-tab" data-toggle="pill" href="#v-pills-6" role="tab" aria-controls="v-pills-6" aria-selected="false">Паста</a>
+                            <a class="nav-link" id="v-pills-7-tab" data-toggle="pill" href="#v-pills-7" role="tab" aria-controls="v-pills-7" aria-selected="false">Закуски</a>
+                            <a class="nav-link" id="v-pills-8-tab" data-toggle="pill" href="#v-pills-8" role="tab" aria-controls="v-pills-8" aria-selected="false">Супы</a>
+                            <a class="nav-link" id="v-pills-9-tab" data-toggle="pill" href="#v-pills-9" role="tab" aria-controls="v-pills-9" aria-selected="false">Вторые блюда</a>
+                            <a class="nav-link" id="v-pills-10-tab" data-toggle="pill" href="#v-pills-10" role="tab" aria-controls="v-pills-10" aria-selected="false">Сэндвичи и бургеры</a>
+                            <a class="nav-link" id="v-pills-11-tab" data-toggle="pill" href="#v-pills-11" role="tab" aria-controls="v-pills-11" aria-selected="false">Пицца</a>
+                            <a class="nav-link" id="v-pills-13-tab" data-toggle="pill" href="#v-pills-13" role="tab" aria-controls="v-pills-13" aria-selected="false">Десерты</a>
+                            <a class="nav-link" id="v-pills-14-tab" data-toggle="pill" href="#v-pills-14" role="tab" aria-controls="v-pills-14" aria-selected="false">Сеты</a>
+                            <a class="nav-link" id="v-pills-16-tab" data-toggle="pill" href="#v-pills-16" role="tab" aria-controls="v-pills-16" aria-selected="false">Вегетарианские блюда</a>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex align-items-center">
+                  	<div class="tab-content ftco-animate" id="v-pills-tabContent">
+
+                  	<div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-1-tab">
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 1}}
+                                        <div class="col-md-4 text-center">
+                                            <div class="menu-wrap">
+                        	                    <img src="{{#each this}} {{imagePath}} {{/each}}" alt=" " class="menu-img img mb-4">
+                        		                <div class="text">
+                        		                    <h3><a href="#">{{#each this}} {{title}} {{/each}}</a></h3>
+                        		                    <p>{{#each this}} {{description}} {{/each}}</p>
+                        		                    <p class="price"><span>{{#each this}} {{price}} {{/each}}</span></p>
+                        		                    <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                        		                </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 100}}
+                                        <div class="col-md-6 mb-5 pb-3">
+                                            <div class="pricing-entry d-flex ftco-animate">
+                                                <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                                    <div class="desc pl-3">
+                                                        <div class="d-flex text align-items-center">
+                                                            <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                                                            <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                                                            <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                                                        </div>
+                                                        <div class="d-block">
+                                                            <p>{{#each this}} {{description}} {{/each}}</p>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+
+                        <h3 class="mb-5 heading-pricing ftco-animate">Мини роллы</h3>
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 1001}}
+                                        <div class="col-md-6 mb-5 pb-3">
+                                            <div class="pricing-entry d-flex ftco-animate">
+                                                <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                                    <div class="desc pl-3">
+                                                        <div class="d-flex text align-items-center">
+                                                            <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                                                            <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                                                            <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                                                        </div>
+                                                        <div class="d-block">
+                                                            <p>{{#each this}} {{description}} {{/each}}</p>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-2-tab">
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 2}}
+                                        <div class="col-md-4 text-center">
+                                            <div class="menu-wrap">
+                            	                <img src="{{#each this}} {{imagePath}} {{/each}}" alt=" " class="menu-img img mb-4">
+                            		            <div class="text">
+                            		                <h3><a href="#">{{#each this}} {{title}} {{/each}}</a></h3>
+                            		                <p>{{#each this}} {{description}} {{/each}}</p>
+                            		                <p class="price"><span>{{#each this}} {{price}} {{/each}}</span></p>
+                            		                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            		            </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 21}}
+                                        <div class="col-md-6 mb-5 pb-3">
+                                            <div class="pricing-entry d-flex ftco-animate">
+                                                <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                                    <div class="desc pl-3">
+                                                        <div class="d-flex text align-items-center">
+                                                            <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                                                            <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                                                            <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                                                        </div>
+                                                        <div class="d-block">
+                                                            <p>{{#each this}} {{description}} {{/each}}</p>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-3-tab">
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 3}}
+                                        <div class="col-md-4 text-center">
+                                            <div class="menu-wrap">
+                            	                <img src="{{#each this}} {{imagePath}} {{/each}}" alt=" " class="menu-img img mb-4">
+                            		            <div class="text">
+                            		                <h3><a href="#">{{#each this}} {{title}} {{/each}}</a></h3>
+                            		                <p>{{#each this}} {{description}} {{/each}}</p>
+                            		                <p class="price"><span>{{#each this}} {{price}} {{/each}}</span></p>
+                            		                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            		            </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 31}}
+                                        <div class="col-md-6 mb-5 pb-3">
+                                            <div class="pricing-entry d-flex ftco-animate">
+                                                <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                                    <div class="desc pl-3">
+                                                        <div class="d-flex text align-items-center">
+                                                            <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                                                            <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                                                            <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                                                        </div>
+                                                        <div class="d-block">
+                                                            <p>{{#each this}} {{description}} {{/each}}</p>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-4" role="tabpanel" aria-labelledby="v-pills-4-tab">
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 4}}
+                                        <div class="col-md-4 text-center">
+                                            <div class="menu-wrap">
+                            	                <img src="{{#each this}} {{imagePath}} {{/each}}" alt=" " class="menu-img img mb-4">
+                            		            <div class="text">
+                            		                <h3><a href="#">{{#each this}} {{title}} {{/each}}</a></h3>
+                            		                <p>{{#each this}} {{description}} {{/each}}</p>
+                            		                <p class="price"><span>{{#each this}} {{price}} {{/each}}</span></p>
+                            		                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            		            </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 41}}
+                                        <div class="col-md-6 mb-5 pb-3">
+                                            <div class="pricing-entry d-flex ftco-animate">
+                                                <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                                    <div class="desc pl-3">
+                                                        <div class="d-flex text align-items-center">
+                                                            <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                                                            <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                                                            <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                                                        </div>
+                                                        <div class="d-block">
+                                                            <p>{{#each this}} {{description}} {{/each}}</p>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-15" role="tabpanel" aria-labelledby="v-pills-15-tab">
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 15}}
+                                        <div class="col-md-6 mb-5 pb-3">
+                                            <div class="pricing-entry d-flex ftco-animate">
+                                                <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                                    <div class="desc pl-3">
+                                                        <div class="d-flex text align-items-center">
+                                                            <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                                                            <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                                                            <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                                                        </div>
+                                                        <div class="d-block">
+                                                            <p>{{#each this}} {{description}} {{/each}}</p>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+                    </div>
+
+
+                    <div class="tab-pane fade" id="v-pills-5" role="tabpanel" aria-labelledby="v-pills-5-tab">
+                        <div class="row">
+                            <section class="ftco-section">
+                                <div class="container">
+                                    <div class="row">
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 5}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-6" role="tabpanel" aria-labelledby="v-pills-6-tab">
+                        <div class="row">
+                            <section class="ftco-section">
+                                <div class="container">
+                                    <div class="row">
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 6}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-8" role="tabpanel" aria-labelledby="v-pills-8-tab">
+                        <div class="row">
+                            <section class="ftco-section">
+                                <div class="container">
+                                <h3 class="mb-5 heading-pricing ftco-animate">Европейские супы</h3>
+                                    <div class="row">
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 8}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+
+                                    <h3 class="mb-5 heading-pricing ftco-animate">Азиатские супы</h3>
+                                    <div class="row">
+
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 81}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-7" role="tabpanel" aria-labelledby="v-pills-7-tab">
+                        <div class="row">
+                            <section class="ftco-section">
+                                <div class="container">
+                                <h3 class="mb-5 heading-pricing ftco-animate">Холодные закуски</h3>
+                                    <div class="row">
+
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 7}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+
+                                    <h3 class="mb-5 heading-pricing ftco-animate">Горячие закуски</h3>
+                                    <div class="row">
+
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 71}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-9" role="tabpanel" aria-labelledby="v-pills-9-tab">
+                        <div class="row">
+                            <section class="ftco-section">
+                                <div class="container">
+                                <h3 class="mb-5 heading-pricing ftco-animate">Горячие блюда</h3>
+                                    <div class="row">
+
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 9}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+
+                                    <h3 class="mb-5 heading-pricing ftco-animate">Шашлычки</h3>
+                                    <div class="row">
+
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 91}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+
+                                    <h3 class="mb-5 heading-pricing ftco-animate">Блюда из риса и лапши</h3>
+                                    <div class="row">
+
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 92}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+
+                                    <h3 class="mb-5 heading-pricing ftco-animate">Гарниры</h3>
+                                    <div class="row">
+
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 93}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-10" role="tabpanel" aria-labelledby="v-pills-10-tab">
+                        <div class="row">
+                            <section class="ftco-section">
+                                <div class="container">
+                                <h3 class="mb-5 heading-pricing ftco-animate">Сэндвичи</h3>
+                                    <div class="row">
+
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 10}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+
+                                    <h3 class="mb-5 heading-pricing ftco-animate">Бургеры</h3>
+                                    <div class="row">
+
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 101}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-11" role="tabpanel" aria-labelledby="v-pills-11-tab">
+                        <div class="row">
+                            <section class="ftco-section">
+                                <div class="container">
+                                <h3 class="mb-5 heading-pricing ftco-animate">Пицца 33 см</h3>
+                                    <div class="row">
+
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 11}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+
+                                    <h3 class="mb-5 heading-pricing ftco-animate">Пицца 38 см</h3>
+                                    <div class="row">
+
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 12}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-13" role="tabpanel" aria-labelledby="v-pills-13-tab">
+                        <div class="row">
+                            <section class="ftco-section">
+                                <div class="container">
+                                    <div class="row">
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 13}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-14" role="tabpanel" aria-labelledby="v-pills-14-tab">
+                        <div class="row">
+                            <section class="ftco-section">
+                                <div class="container">
+                                    <div class="row">
+                                        {{#each products}}
+                                            {{#each this}}
+                                                {{#is this.categoryId 14}}
+                                    	            <div class="col-md-6 mb-5 pb-3">
+                                    		            <div class="pricing-entry d-flex ftco-animate">
+                                    			            <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                    			                <div class="desc pl-3">
+                            	        			                <div class="d-flex text align-items-center">
+                            	        				                <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                            	        				                <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                            	        				                <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                            	        			                </div>
+                            	        			            <div class="d-block">
+                            	        				            <p>{{#each this}} {{description}} {{/each}}</p>
+                            	        			            </div>
+                                    			            </div>
+                                    		            </div>
+                                    	            </div>
+                                    	        {{/is}}
+                                            {{/each}}
+                                        {{/each}}
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="v-pills-16" role="tabpanel" aria-labelledby="v-pills-16-tab">
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 16}}
+                                        <div class="col-md-6 mb-5 pb-3">
+                                            <div class="pricing-entry d-flex ftco-animate">
+                                                <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                                    <div class="desc pl-3">
+                                                        <div class="d-flex text align-items-center">
+                                                            <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                                                            <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                                                            <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                                                        </div>
+                                                        <div class="d-block">
+                                                            <p>{{#each this}} {{description}} {{/each}}</p>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+
+                        <h3 class="mb-5 heading-pricing ftco-animate">Пицца</h3>
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 161}}
+                                        <div class="col-md-6 mb-5 pb-3">
+                                            <div class="pricing-entry d-flex ftco-animate">
+                                                <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                                    <div class="desc pl-3">
+                                                        <div class="d-flex text align-items-center">
+                                                            <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                                                            <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                                                            <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                                                        </div>
+                                                        <div class="d-block">
+                                                            <p>{{#each this}} {{description}} {{/each}}</p>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+
+                        <h3 class="mb-5 heading-pricing ftco-animate">Роллы</h3>
+                        <div class="row">
+                            {{#each products}}
+                                {{#each this}}
+                                    {{#is this.categoryId 162}}
+                                        <div class="col-md-6 mb-5 pb-3">
+                                            <div class="pricing-entry d-flex ftco-animate">
+                                                <!--<div class="img" style="background-image: url({{#each this}} {{imagePath}} {{/each}});"></div>-->
+                                                    <div class="desc pl-3">
+                                                        <div class="d-flex text align-items-center">
+                                                            <h3><span>{{#each this}} {{title}} {{/each}}</span></h3>
+                                                            <span class="price">{{#each this}} {{price}} {{/each}}</span>
+                                                            <a href="/menu/add-to-cart/{{this._id}}" class="btn btn-success pull-right btn-primary btn-outline-primary" role="button">Добавить</a>
+                                                        </div>
+                                                        <div class="d-block">
+                                                            <p>{{#each this}} {{description}} {{/each}}</p>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                        </div>
+                                    {{/is}}
+                                {{/each}}
+                            {{/each}}
+                        </div>
+                    </div>
+
+		        </div>
+		      </div>
+		    </div>
+    	</div>
+    	</div>
+    </div>
+</section>
+
+
+  <!-- loader -->
+  <div id='ftco-loader' class='show fullscreen'><svg class='circular' width='48px' height='48px'><circle class='path-bg' cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke='#eeeeee'/><circle class='path' cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke-miterlimit='10' stroke='#F96D00'/></svg></div>
+
+
+  <script src='/javascripts/jquery.min.js'></script>
+  <script src='/javascripts/jquery-migrate-3.0.1.min.js'></script>
+  <script src='/javascripts/popper.min.js'></script>
+  <script src='/javascripts/bootstrap.min.js'></script>
+  <script src='/javascripts/jquery.easing.1.3.js'></script>
+  <script src='/javascripts/jquery.waypoints.min.js'></script>
+  <script src='/javascripts/jquery.stellar.min.js'></script>
+  <script src='/javascripts/owl.carousel.min.js'></script>
+  <script src='/javascripts/jquery.magnific-popup.min.js'></script>
+  <script src='/javascripts/aos.js'></script>
+  <script src='/javascripts/jquery.animateNumber.min.js'></script>
+  <script src='/javascripts/bootstrap-datepicker.js'></script>
+  <script src='/javascripts/jquery.timepicker.min.js'></script>
+  <script src='/javascripts/scrollax.min.js'></script>
+  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false'></script>
+  <script src='/javascripts/google-map.js'></script>
+  <script src='/javascripts/main.js'></script>

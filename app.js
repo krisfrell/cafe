@@ -11,6 +11,8 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const validator = require('express-validator');
 const MongoStore = require('connect-mongo')(session);
+const helpers = require('handlebars-helpers');
+const hbsHelpers = helpers();
 
 let routes = require('./routes/index');
 let userRoutes = require('./routes/user');
@@ -22,7 +24,7 @@ mongoose.connect('mongodb://localhost:27017/shopping');
 
 require('./config/passport');
 // view engine setup
-app.engine('.hbs', expressHbs({defaultLayout: 'layout', extname: '.hbs'}));
+app.engine('.hbs', expressHbs({helpers: hbsHelpers, defaultLayout: 'layout', extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -110,5 +112,14 @@ db.on('error', function (err) {
 db.once('open', function () {
 	console.log("Connection to db established.");
 });
+
+app.get('/contacts', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views', 'contacts'));
+});
+
+// app.post('/email', (req, res) => {
+//     console.log('Data: ', req.body);
+//     res.json({ message: 'Message received'})
+// });
 
 module.exports = app;

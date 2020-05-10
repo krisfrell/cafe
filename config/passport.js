@@ -17,8 +17,8 @@ passport.use('local.signup', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, function(req, email, password, done) {
-    req.checkBody('email', 'Invalid email').notEmpty().isEmail();
-    req.checkBody('password', 'Invalid password').notEmpty().isLength({min:8});
+    req.checkBody('email', 'Неправильный email').notEmpty().isEmail();
+    req.checkBody('password', 'Неправильный пароль').notEmpty().isLength({min:8});
     let errors = req.validationErrors();
     if (errors) {
         let messages = [];
@@ -32,7 +32,7 @@ passport.use('local.signup', new LocalStrategy({
            return done(err); 
         }
         if (user) {
-            return done(null, false, {message: 'Email is already in use.'});
+            return done(null, false, {message: 'Пользователь с таким email уже существует!'});
         }
         let newUser = new User();
         newUser.email = email;
@@ -51,8 +51,8 @@ passport.use('local.signin', new LocalStrategy({
     passwordField: 'password',
     passReqToCallback: true
 }, function(req, email, password, done) {
-    req.checkBody('email', 'Invalid email').notEmpty().isEmail();
-    req.checkBody('password', 'Invalid password').notEmpty();
+    req.checkBody('email', 'Неправильный email').notEmpty().isEmail();
+    req.checkBody('password', 'Неправильный пароль').notEmpty();
     let errors = req.validationErrors();
     if (errors) {
         let messages = [];
@@ -66,10 +66,10 @@ passport.use('local.signin', new LocalStrategy({
            return done(err); 
         }
         if (!user) {
-            return done(null, false, {message: 'No user found.'});
+            return done(null, false, {message: 'Пользователь не найден'});
         }
         if (!user.validPassword(password)) {
-            return done(null, false, {message: 'Wrong password.'});
+            return done(null, false, {message: 'Неправильный пароль'});
         }
         return done(null, user);
     });

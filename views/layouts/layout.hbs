@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>{{title}}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
 
-<head>
-  <title>{{title}}</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
-    crossorigin="anonymous">
-  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
+        <link href='https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:400,700' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet'>
+        <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Forum&family=Tenor+Sans&display=swap" rel="stylesheet">
 
-<body>
-  {{> header }}
-  <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ="crossorigin="anonymous"></script>
+        <link rel='stylesheet' href='/stylesheets/open-iconic-bootstrap.min.css'>
+        <link rel='stylesheet' href='/stylesheets/animate.css'>
 
-  <div class="container">
+        <link rel='stylesheet' href='/stylesheets/owl.carousel.min.css'>
+        <link rel='stylesheet' href='/stylesheets/owl.theme.default.min.css'>
+        <link rel='stylesheet' href='/stylesheets/magnific-popup.css'>
+
+        <link rel='stylesheet' href='/stylesheets/aos.css'>
+
+        <link rel='stylesheet' href='/stylesheets/ionicons.min.css'>
+
+        <link rel='stylesheet' href='/stylesheets/bootstrap-datepicker.css'>
+        <link rel='stylesheet' href='/stylesheets/jquery.timepicker.css'>
+
+
+        <link rel='stylesheet' href='/stylesheets/flaticon.css'>
+        <link rel='stylesheet' href='/stylesheets/icomoon.css'>
+        <link rel='stylesheet' href='/stylesheets/style.css'>
+  </head>
+  <body>
+  {{>headers}}
+
     {{{body}}}
-  </div>
 
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
-    crossorigin="anonymous"></script>
-</body>
-
+    {{> footer}}
+  </body>
 </html>

@@ -1,38 +1,66 @@
-<div class="jumbotron">
-  <div class="header text-center">
-    <h1>User Profile</h1>
-  </div>
-</div>
-<div class="row">
-    <div class="col-md-8 col-md-offset-2 card">
-        <div class="text-center">
-          <h2>My Orders</h2>
-        </div>
-        {{# each orders }}
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <ul class="list-group">
-                        {{# each this.items }}
-                            <li class="list-group-item order-items">
-                                <span class="badge">{{ this.price }}</span>
-                                {{ this.item.title }} | {{ this.qty }} Units
-                            </li>
-                        {{/each}}
-                    </ul>
-                </div>
-                <div class="panel-footer items-panel">
-                    <strong>Total Price: ${{ this.cart.totalPrice }}</strong>
-                </div>
+<section class="home-slider owl-carousel">
+      <div class="slider-item" style="background-image: url(../../images/background.png);" data-stellar-background-ratio="0.5">
+      	<div class="overlay"></div>
+        <div class="container">
+          <div class="row slider-text justify-content-center align-items-center">
+
+            <div class="col-md-7 col-sm-12 text-center ftco-animate">
+            	<h1 class="mb-3 mt-5 bread">Профиль</h1>
+	            <p class="breadcrumbs"><span class="mr-2"><a href="/">На главную</a></span></p>
             </div>
-        {{/each}}
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+<section class="ftco-section">
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="text center">
+            <h2>Мои заказы</h2>
+        </div>
+
+        {{#each orders}}
+        <div>
+                        <div class="cart-list">
+                        {{#each this.items }}
+                            <ul>
+                                    <li>
+                                        <span class="badge">{{ this.price }}</span>
+                                        {{ this.item.title }} |  Количество: {{ this.qty }}
+                                    </li>
+                            </ul>
+                            {{/each}}
+                        </div>
+                        <div>
+                            <strong>Сумма: {{ this.cart.totalPrice }}</strong>
+                        </div>
+                    </div>
+                {{/each}}
     </div>
 </div>
-<script>
-    // Use as background image on main page
-  let showcase = document.querySelector('body');
-  showcase.style.background = "url(/images/background4.jpeg)";
-  showcase.style.backgroundSize = "cover";
-  showcase.style.backgroundPosition = "center";
-  showcase.style.backgroundRepeat = "repeat";
-  showcase.style.height = "100%";
-</script>
+</section>
+
+<!-- loader -->
+  <div id='ftco-loader' class='show fullscreen'><svg class='circular' width='48px' height='48px'><circle class='path-bg' cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke='#eeeeee'/><circle class='path' cx='24' cy='24' r='22' fill='none' stroke-width='4' stroke-miterlimit='10' stroke='#F96D00'/></svg></div>
+
+
+  <script src='/javascripts/jquery.min.js'></script>
+  <script src='/javascripts/jquery-migrate-3.0.1.min.js'></script>
+  <script src='/javascripts/popper.min.js'></script>
+  <script src='/javascripts/bootstrap.min.js'></script>
+  <script src='/javascripts/jquery.easing.1.3.js'></script>
+  <script src='/javascripts/jquery.waypoints.min.js'></script>
+  <script src='/javascripts/jquery.stellar.min.js'></script>
+  <script src='/javascripts/owl.carousel.min.js'></script>
+  <script src='/javascripts/jquery.magnific-popup.min.js'></script>
+  <script src='/javascripts/aos.js'></script>
+  <script src='/javascripts/jquery.animateNumber.min.js'></script>
+  <script src='/javascripts/bootstrap-datepicker.js'></script>
+  <script src='/javascripts/jquery.timepicker.min.js'></script>
+  <script src='/javascripts/scrollax.min.js'></script>
+  <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false'></script>
+  <script src='/javascripts/google-map.js'></script>
+  <script src='/javascripts/main.js'></script>

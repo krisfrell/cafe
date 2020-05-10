@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 let schema = new Schema({
+    categoryId: {type: Number, required: true},
     imagePath: {type: String, required: true},
     title: {type: String, required: true},
     description: {type: String, required: true},

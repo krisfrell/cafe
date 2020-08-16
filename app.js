@@ -61,10 +61,6 @@ app.use(function(req, res, next) {
   next(err);
 });
 
-// error handlers
-
-// development error handler
-// will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
@@ -75,8 +71,6 @@ if (app.get('env') === 'development') {
   });
 }
 
-// production error handler
-// no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error', {
@@ -88,23 +82,13 @@ app.use(function(err, req, res, next) {
 // Get notified if a successful connection to db occurs or a connection error
 const db = mongoose.connection;
 db.on('error', function (err) {
-	// If first connect fails because mongod is down, try again later.
-	// This is only needed for first connect, not for runtime reconnects.
-	// See: https://github.com/Automattic/mongoose/issues/5169
 	if (err.message && err.message.match(/failed to connect to server .* on first connect/)) {
 		console.log(new Date(), String(err));
-
-		// Wait for a bit, then try to connect again
 		setTimeout(function () {
 			console.log("Retrying first connect...");
 			db.openUri(dbUrl).catch(() => {});
-			// Why the empty catch?
-			// Well, errors thrown by db.open() will also be passed to .on('error'),
-			// so we can handle them there, no need to log anything in the catch here.
-			// But we still need this empty catch to avoid unhandled rejections.
 		}, 20 * 1000);
 	} else {
-		// Some other error occurred.  Log it.
 		console.error(new Date(), String(err));
 	}
 });
@@ -116,10 +100,5 @@ db.once('open', function () {
 app.get('/contacts', (req, res) => {
     res.sendFile(path.join(__dirname, 'views', 'contacts'));
 });
-
-// app.post('/email', (req, res) => {
-//     console.log('Data: ', req.body);
-//     res.json({ message: 'Message received'})
-// });
 
 module.exports = app;

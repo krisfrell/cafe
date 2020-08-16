@@ -64,10 +64,10 @@ router.get('/remove/:id', function (req, res, next) {
 
 router.get('/shopping-cart', function (req, res, next) {
     if (!req.session.cart) {
-        return res.render('pages/shopping-cart', {title: 'Корзина', products: null});
+        return res.render('pages/shopping-cart', {products: null});
     }
     let cart = new Cart(req.session.cart);
-    res.render('pages/shopping-cart', {title: 'Корзина', products: cart.generateArray(), totalPrice: cart.totalPrice, commonPrice: cart.commonPrice});
+    res.render('pages/shopping-cart', {products: cart.generateArray(), totalPrice: cart.totalPrice, commonPrice: cart.commonPrice});
 });
 
 router.get('/checkout', isLoggedIn, function (req, res, next) {
@@ -76,7 +76,7 @@ router.get('/checkout', isLoggedIn, function (req, res, next) {
     }
     let cart = new Cart(req.session.cart);
     let errMsg = req.flash('error')[0];
-    res.render('pages/checkout', {title: 'Оформление заказа', total: cart.totalPrice, common:cart.commonPrice, errMsg: errMsg, noError: !errMsg});
+    res.render('pages/checkout', {total: cart.totalPrice, common:cart.commonPrice, errMsg: errMsg, noError: !errMsg});
 });
 
 router.post('/bla', isLoggedIn, function(req, res, next) {
@@ -118,6 +118,8 @@ router.post('/bla', isLoggedIn, function(req, res, next) {
         cart: cart
     });
 
+
+
     sendEmail(email, subject, text, function (err, data) {
         if (err) {
             res.status(500).json({message: 'Internal Error'});
@@ -129,7 +131,10 @@ router.post('/bla', isLoggedIn, function(req, res, next) {
                 }
                 req.session.cart = null;
                 res.redirect('/');
+                // console.log(order.items);
             });
+            // req.session.cart = null;
+            // res.redirect('/');
         }
     });
 });
